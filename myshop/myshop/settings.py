@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import braintree
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -129,4 +130,24 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
 
+# SMTP
+
+# EMAIL_HOST= 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'monday.ent9@gmail.com'
+# EMAIL_HOST_PASSWORD = 'alberteinstein'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Braintree settings
+BRAINTREE_MERHCANT_ID = ''
+BRAINTREE_PUBLICK_KEY = ''
+BRAINTREE_PRIVATE_KEY = ''
+
+BRAINTREE_CONF = braintree.Configuration(
+    braintree.Environment.Sandbox,
+    BRAINTREE_MERHCANT_ID,
+    BRAINTREE_PUBLICK_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
