@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,14 +130,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # Session
 
 CART_SESSION_ID = 'cart'
-
-# SMTP
-
-# EMAIL_HOST= 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'monday.ent9@gmail.com'
-# EMAIL_HOST_PASSWORD = 'alberteinstein'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
