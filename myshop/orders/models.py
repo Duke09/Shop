@@ -1,4 +1,6 @@
 from django.db import models
+from decimal import Decimal
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 from shop.models import Product
 
@@ -33,7 +35,20 @@ class Order(models.Model):
         max_length=150,
         blank=True
     )
-    total = total = models.DecimalField(
+    coupon = models.ForeignKey(
+        Coupon,
+        related_name='orders',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+    )
+    discount = models.IntegerField(
+        default=0,
+        validators=[
+            MinValueValidator(0), MaxValueValidator(100)
+        ]
+    )
+    total = models.DecimalField(
         max_digits=10,
         decimal_places=2,
         null=True,
@@ -48,9 +63,10 @@ class Order(models.Model):
         return f'Order {self.id}'
 
     def get_total_cost(self):
-        total = sum(
+        total_cost = sum(
             item.get_cost() for item in self.items.all()
-        )
+        ) 
+        total = total_cost - total_cost * (self.discount/Decimal(100))
         self.total = total
         self.save()
         return total
