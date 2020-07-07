@@ -33,6 +33,11 @@ class Order(models.Model):
         max_length=150,
         blank=True
     )
+    total = total = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        null=True,
+    )
 
     class Meta:
         ordering = (
@@ -43,9 +48,12 @@ class Order(models.Model):
         return f'Order {self.id}'
 
     def get_total_cost(self):
-        return sum(
+        total = sum(
             item.get_cost() for item in self.items.all()
         )
+        self.total = total
+        self.save()
+        return total
 
 class OrderItem(models.Model):
     order = models.ForeignKey(
@@ -84,4 +92,4 @@ class OrderItem(models.Model):
         total = order_price - per_dis
         self.total = total
         self.save()
-        return total
+        return round(total, 2)

@@ -59,7 +59,6 @@ class Cart(object):
         if product_id in self.cart:
             if self.cart[product_id]['quantity'] >= 1:
                 self.cart[product_id]['quantity'] -= quantity
-                self.cart[product_id]['quantity'] = quantity
                 price = product.price
                 qty = int(self.cart[product_id]['quantity'])
                 dis = product.percentage_discount
