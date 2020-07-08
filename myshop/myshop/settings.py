@@ -42,11 +42,15 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
+    'coupons.apps.CouponsConfig',
+    'rosetta',
+    'parler',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -108,7 +112,31 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
+from django.utils.translation import gettext_lazy as _
 
+LANGUAGES = (
+    ('en', _('English')),
+    ('bn', _('Bengali')),
+    ('hi', _('Hindi')),
+    ('es', _('Spanish')),
+)
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'bn'},
+        {'code': 'hi'},
+        {'code': 'es'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Kolkata'
@@ -132,13 +160,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CART_SESSION_ID = 'cart'
 
+# SMTP
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST= 'smtp.gmail.com'
+EMAIL_HOST_USER = 'monday.ent9@gmail.com'
+EMAIL_HOST_PASSWORD = 'alberteinstein'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Braintree settings
-BRAINTREE_MERHCANT_ID = ''
-BRAINTREE_PUBLICK_KEY = ''
-BRAINTREE_PRIVATE_KEY = ''
+BRAINTREE_MERHCANT_ID = '8ckhf672qmr9vckm'
+BRAINTREE_PUBLICK_KEY = 'gr9kmykmn74mj563'
+BRAINTREE_PRIVATE_KEY = 'da4a4eb1243846bf546ceeca6d4e6ed5'
 
 BRAINTREE_CONF = braintree.Configuration(
     braintree.Environment.Sandbox,
@@ -146,3 +182,9 @@ BRAINTREE_CONF = braintree.Configuration(
     BRAINTREE_PUBLICK_KEY,
     BRAINTREE_PRIVATE_KEY
 )
+
+# Redis
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 1

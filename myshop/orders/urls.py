@@ -1,3 +1,4 @@
+from django.utils.translation import gettext_lazy as _
 from django.urls import path
 from .views import *
 
@@ -5,7 +6,7 @@ app_name = 'orders'
 
 urlpatterns = [
     path(
-        'create/', 
+        _('create/'), 
         order_create, 
         name='order_create'
     ),

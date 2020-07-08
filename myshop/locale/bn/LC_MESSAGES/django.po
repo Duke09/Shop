@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-07 22:44+0530\n"
+"PO-Revision-Date: 2020-07-07 23:15+0553\n"
+"Last-Translator: b'  <>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.3\n"
+
+#: cart/forms.py:10
+msgid "Quantity"
+msgstr "পরিমাণ"
+
+#: coupons/forms.py:6
+msgid "Coupon"
+msgstr "কুপন"
+
+#: myshop/settings.py:117
+msgid "English"
+msgstr "ইংরাজি"
+
+#: myshop/settings.py:118
+msgid "Bengali"
+msgstr "বাঙ্গালি"
+
+#: myshop/settings.py:119
+msgid "Hindi"
+msgstr "হিন্দি"
+
+#: myshop/settings.py:120
+msgid "Spanish"
+msgstr "স্প্যানিশ"
+
+#: myshop/urls.py:24
+msgid "admin/"
+msgstr "প্রশাসক"
+
+#: myshop/urls.py:25
+msgid "cart/"
+msgstr "কার্ট"
+
+#: myshop/urls.py:26
+msgid "orders/"
+msgstr "অর্ডার"
+
+#: myshop/urls.py:27
+msgid "payment/"
+msgstr "পারিশ্রমিক"
+
+#: myshop/urls.py:28
+#| msgid "Coupon"
+msgid "coupons/"
+msgstr "কুপন"
+
+#: payment/urls.py:9
+msgid "process/"
+msgstr "প্রক্রিয়া"
+
+#: payment/urls.py:10
+msgid "done/"
+msgstr "সম্পন্ন"
+
+#: payment/urls.py:11
+msgid "canceled/"
+msgstr "বাতিল"
+
+#: shop/templates/shop/base.html:8 shop/templates/shop/base.html:17
+msgid "Shop"
+msgstr "দোকান"
+
+#: shop/templates/shop/base.html:23
+msgid "Your Cart"
+msgstr "আপনার শপিং কার্ট"
+
+#: shop/templates/shop/base.html:25
+#, python-format
+msgid ""
+"\n"
+"                        %(items)s item, %(total)s\n"
+"                        "
+msgid_plural ""
+"\n"
+"                            %(items)s items, ₹%(total)s\n"
+"                        "
+msgstr[0] ""
+"\n"
+"%(items)s পদ, %(total)s"
+msgstr[1] ""
+"\n"
+"%(items)s পদ, %(total)s"
+
+#: shop/templates/shop/base.html:32
+msgid "Your cart is empty!"
+msgstr "আপনার শপিং কার্ট খালি"
+
+#: shop/templates/shop/product/detail.html:20
+msgid "Add to cart"
+msgstr "শপিং কার্টে যোগ করুন"

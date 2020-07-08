@@ -6,6 +6,7 @@ from django.conf import settings
 from orders.models import Order
 
 from .tasks import payment_completed
+
 # Create your views here.
 
 # instantiate Braintree payment gateway

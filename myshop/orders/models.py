@@ -1,25 +1,34 @@
 from django.db import models
 from decimal import Decimal
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.utils.translation import gettext_lazy as _
 
 from shop.models import Product
+from coupons.models import Coupon
 
 # Create your models here.
 class Order(models.Model):
     first_name = models.CharField(
+        _('first name'),
         max_length=50
     )
     last_name = models.CharField(
+        _('last name'),
         max_length=50
     )
-    email = models.EmailField()
+    email = models.EmailField(
+        _('e-mail')
+    )
     address = models.CharField(
+        _('address'),
         max_length=250
     )
     postal_code = models.CharField(
+        _('postal code'),
         max_length=20
     )
     city = models.CharField(
+        _('city'),
         max_length=100
     )
     created = models.DateTimeField(
@@ -108,4 +117,4 @@ class OrderItem(models.Model):
         total = order_price - per_dis
         self.total = total
         self.save()
-        return round(total, 2)
+        return total

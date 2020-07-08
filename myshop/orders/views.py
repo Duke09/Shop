@@ -97,3 +97,13 @@ def admin_order_pdf(request, order_id):
         )]
     )
     return response
+
+"""
+270
+220
+50
+180
+190
+35+48
+1023
+"""
